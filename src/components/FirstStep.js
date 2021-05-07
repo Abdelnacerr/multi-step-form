@@ -1,12 +1,13 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { Form, Button } from 'react-bootstrap';
+import React from "react";
+import { useForm } from "react-hook-form";
+import { Form, Button } from "react-bootstrap";
 
 const FirstStep = (props) => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
+    props.history.push("/second");
   };
 
   return (
@@ -20,13 +21,13 @@ const FirstStep = (props) => {
             placeholder="Enter your first name"
             autoComplete="off"
             ref={register({
-              required: 'First name is required.',
+              required: "First name is required.",
               pattern: {
                 value: /^[a-zA-Z]+$/,
-                message: 'First name should contain only characters.'
-              }
+                message: "First name should contain only characters.",
+              },
             })}
-            className={`${errors.first_name ? 'input-error' : ''}`}
+            className={`${errors.first_name ? "input-error" : ""}`}
           />
           {errors.first_name && (
             <p className="errorMsg">{errors.first_name.message}</p>
@@ -41,13 +42,13 @@ const FirstStep = (props) => {
             placeholder="Enter your last name"
             autoComplete="off"
             ref={register({
-              required: 'Last name is required.',
+              required: "Last name is required.",
               pattern: {
                 value: /^[a-zA-Z]+$/,
-                message: 'Last name should contain only characters.'
-              }
+                message: "Last name should contain only characters.",
+              },
             })}
-            className={`${errors.last_name ? 'input-error' : ''}`}
+            className={`${errors.last_name ? "input-error" : ""}`}
           />
           {errors.last_name && (
             <p className="errorMsg">{errors.last_name.message}</p>
