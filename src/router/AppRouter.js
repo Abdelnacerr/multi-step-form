@@ -17,7 +17,7 @@ const AppRouter = () => {
   };
   return (
     <BrowserRouter>
-      <div className="container">
+      <div>
         <Header />
         <Switch>
           <Route
